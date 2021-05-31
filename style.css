@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Six Caps', sans-serif;
+}
+
+body{
+    overflow: hidden;
+}
+
+.section{
+    width: 100%;
+    height: 100vh;
+    background: #ECEBDA;
+    display: grid;
+    grid-template-columns: 2fr 5fr 4fr;
+}
+
+.border__content{
+    border-right: 0.3px solid #a3a3a0;
+}
+
+.image__water__mark{
+    background: cornsilk;
+    background-image: url(./image/laura-chouette-lJZy03xrPtE-unsplash.jpg);
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+    mix-blend-mode: luminosity;
+}
+
+
+
+.container{
+    padding-left: 50px;
+    padding-top: 100px;
+    margin-right: -50%;
+}
+
+.container p{
+    font-size: 40px;
+    margin-top: 30px;
+    letter-spacing: 10px;
+    font-weight: lighter;
+}
+
+.title{
+    font-size: 120px;
+    font-family: sans-serif;
+    line-height: 125px;
+    letter-spacing: 4px;
+    font-weight: 500;
+    position: relative;
+}
+
+.title__three{
+    white-space: nowrap;
+}
+
+
+/* sudo line on */
+
+.title__one{
+    position: relative;
+}
+
+
+.title__one::before{
+    content: '';
+    width: 100px;
+    height: 1px;
+    background: black;
+    position: absolute;
+    left: -125px;
+    top: 60px;
+}
+
+/* .title__two{
+    background: rgba(128, 128, 0, 0.425);
+    width: fit-content;
+} */
+
+.title__three{
+    position: relative;
+    z-index: 1
+
+}
+
+/* threejs image animation */
+
+.image{
+    position: absolute;
+    width: 200px;
+    height: 280px;
+    background: rgba(212, 212, 21, 0.616);
+    top: 35%;
+    left: 25%;
+    clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+}
+
+
+
+/* mouse__cursor */
+
+.mouse__cursor{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid gray;
+    background: transparent;
+    border-radius: 50%;
+    top: -48px;
+    left: -48px;
+    transform: translate(-48%, -45%);
+    pointer-events: none;
+    transition: 0.15s ease;
+}
+
+
+
+/* letter before position using gsap */
+
+
+.letter{
+    display: inline-block;
+    transform: translateY(-50px);
+    opacity: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 16%, 0 16%);
+}
+
+
+/* bottom__text */
+
+.bottom__text{
+    display: inline-block;
+    transform: translateY(50px);
+    opacity: 0;
+    margin-top: 100px;
+    clip-path: polygon(0 0, 100% 0, 100% 16%, 0 16%);
+}

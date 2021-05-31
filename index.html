@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+
+    <div class="section">
+
+
+        <!-- border spacing -->
+    <div class="border__content"></div>
+
+    <!-- text popup -->
+        <div class="container">
+            <div class="title">
+                <div class="title__one">Life is good</div>
+                <div class="title__two">But</div>
+                <div class="title__three">It can be better.</div>
+
+                <!-- three js image -->
+                <div class="image"></div>
+
+            </div>
+            <p class="bottom__text">Live without pain on earth is not easy these days</p>
+        </div>
+
+        <!-- image watermark -->
+        <div class="image__water__mark">
+        </div>
+
+        
+        <!-- three js image -->
+        <!-- <div class="image"></div> -->
+
+        <div class="mouse__cursor"></div>
+
+
+    </div>
+
+
+
+        <!-- dist hover js file -->
+        <script src="./hover-effect.umd.js"></script>
+
+        <!-- gsap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- three js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+        <!-- script -->
+        <script>
+
+            
+            // letter animation
+            let title__one = document.querySelector('.title__one')
+            //make each and every letter to a span tag
+            title__one.innerHTML = title__one.textContent.replace(/\S/g, "<span class='letter'>$&</span>")
+
+             // letter animation
+             let title__two = document.querySelector('.title__two')
+            //make each and every letter to a span tag
+            title__two.innerHTML = title__two.textContent.replace(/\S/g, "<span class='letter'>$&</span>")
+
+             // letter animation
+             let title__three = document.querySelector('.title__three')
+            //make each and every letter to a span tag
+            title__three.innerHTML = title__three.textContent.replace(/\S/g, "<span class='letter'>$&</span>")
+
+            //bottom__text
+            let bottom__text = document.querySelector('.bottom__text')
+
+            
+            // gsap span letter clip path animation
+
+            let t1 = gsap.timeline()
+
+            t1.to('.title__one .letter', {opacity:1, y: '0', clipPath: 'polygon(0 1%, 100% 1%, 100% 100%, 0% 100%)', stagger: '0.05', duration: 0.7, delay: 1})
+            t1.to('.title__two .letter', {opacity:1, y: '0', clipPath: 'polygon(0 1%, 100% 1%, 100% 100%, 0% 100%)', stagger: '0.05', duration: 0.7}, '-=0.7')
+            t1.to('.title__three .letter', {opacity:1, y: '0', clipPath: 'polygon(0 1%, 100% 1%, 100% 100%, 0% 100%)', stagger: '0.05', duration: 0.7}, '-=0.7')
+
+            
+            // bottom text
+            t1.to('.bottom__text', {opacity:1, y: '0', clipPath: 'polygon(0 1%, 100% 1%, 100% 100%, 0% 100%)', stagger: '0.05', duration: 0.5})
+
+
+
+    // image move with mouse
+    let image = document.querySelector('.image')
+
+    t1.to('.image', {opacity:1, y: '0', clipPath: 'polygon(0 1%, 100% 1%, 100% 100%, 0% 100%)', stagger: '0.05', duration: 1})
+
+    // mouse__cursor
+    let mouse__cursor = document.querySelector('.mouse__cursor')
+
+    let mouse__position = {
+        x:0,
+        y:0
+    }
+
+    document.addEventListener('mousemove', (e)=>{
+
+        mouse__position.x = -e.clientX * 0.1
+        mouse__position.y = -e.clientY * 0.1
+
+        //image movement
+        image.style.transform = `translate(${mouse__position.x}px, ${mouse__position.y}px)`
+
+        // mouse__cursor movement
+        mouse__cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
+    })
+
+
+    
+
+
+
+        </script>
+        
+
+</body>
+</html>
